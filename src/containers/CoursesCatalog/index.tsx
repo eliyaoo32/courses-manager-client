@@ -45,6 +45,8 @@ const _courses: Array<Course> = [
 ];
 
 function CoursesCatalog() {
+    const goToCourse = (course: Course) => console.log(`DO IT!`);
+
     return (
         <React.Fragment>
             <CategoriesBar categories={_categories} />
@@ -52,7 +54,7 @@ function CoursesCatalog() {
             <Grid container justify="center" style={{marginTop: '30px', width:'100%'}} spacing={4}>
                 {_courses.map((course: Course) => (
                     <Grid item xs={11} md={5} key={course.id}>
-                        <CourseCard course={course} />
+                        <CourseCard course={course} onSelect={() => goToCourse(course)} />
                     </Grid>
                 ))}
             </Grid>
