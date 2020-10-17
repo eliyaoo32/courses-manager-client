@@ -1,9 +1,10 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import Category from '../../types/Category';
 import CourseCard from '../../components/CourseCard';
 import CategoriesBar from '../../components/CategoriesBar';
 import Course from '../../types/Course';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 const _categories: Array<Category> = [
     {
@@ -44,14 +45,15 @@ const _courses: Array<Course> = [
     }
 ];
 
-function CoursesCatalog() {
-    const goToCourse = (course: Course) => console.log(`DO IT!`);
+function CoursesCatalog({ history }: RouteComponentProps) {
+    const goToCourse = (course: Course) => history.push(`/course/${course.id}`);
 
     return (
         <React.Fragment>
             <CategoriesBar categories={_categories} />
 
             <Grid container justify="center" style={{marginTop: '30px', width:'100%'}} spacing={4}>
+                {_courses.length === 0 && <Typography variant="h3">No Course Found, Please Upload Courses.</Typography>}
                 {_courses.map((course: Course) => (
                     <Grid item xs={11} md={5} key={course.id}>
                         <CourseCard course={course} onSelect={() => goToCourse(course)} />
@@ -62,4 +64,4 @@ function CoursesCatalog() {
     );
 }
 
-export default CoursesCatalog;
+export default withRouter(CoursesCatalog);
