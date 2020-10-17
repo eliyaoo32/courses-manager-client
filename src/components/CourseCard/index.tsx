@@ -1,12 +1,13 @@
 import React from 'react';
 import { Typography, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@material-ui/core';
 import CategoryTag from '../CategoryTag';
+import Category from '../../types/Category';
 
 type CourseCardProps = {
     courseName: string,
     courseDescription: string,
     imageUrl: string,
-    categories: Array<string>
+    categories: Array<Category>
 };
 
 const CourseCard = ({ courseName, courseDescription, imageUrl, categories }: CourseCardProps) => (
@@ -27,8 +28,9 @@ const CourseCard = ({ courseName, courseDescription, imageUrl, categories }: Cou
             </CardContent>
         </CardActionArea>
         <CardActions>
-            <CategoryTag small name="Design" />
-            <CategoryTag small name="E-Commerce" />
+            {categories.map((category) => (
+                <CategoryTag key={category.id} small category={category} />)
+            )}
         </CardActions>
     </Card>
 );

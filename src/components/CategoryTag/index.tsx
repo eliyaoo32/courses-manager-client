@@ -1,18 +1,19 @@
 import React from 'react';
 import { Chip } from '@material-ui/core';
+import Category from '../../types/Category';
 
 type CategoryTagProps = {
-    name: string,
+    category: Category,
     selected?: boolean,
     small?: boolean,
     onClick?: () => any
 };
 
-function CategoryTag({ name, selected, small, onClick }: CategoryTagProps) {
+function CategoryTag({ category, selected, small, onClick }: CategoryTagProps) {
     return (
         <Chip
             variant={!!selected ? 'default' : 'outlined'} color="primary"
-            size={!!small ? 'small' : 'medium'} label={name} onClick={onClick}
+            size={!!small ? 'small' : 'medium'} label={category.name} onClick={onClick}
         />
     );
 }
