@@ -4,14 +4,17 @@ import { Chip } from '@material-ui/core';
 type CategoryTagProps = {
     name: string,
     selected?: boolean,
-    small?: boolean
+    small?: boolean,
+    onClick?: () => any
 };
 
-const CategoryTag = ({ name, selected, small }: CategoryTagProps) => (
-    <Chip
-        variant={!!selected ? 'default' : 'outlined'} color="primary"
-        size={!!small ? 'small' : 'medium'} label={name}
-    />
-);
+function CategoryTag({ name, selected, small, onClick }: CategoryTagProps) {
+    return (
+        <Chip
+            variant={!!selected ? 'default' : 'outlined'} color="primary"
+            size={!!small ? 'small' : 'medium'} label={name} onClick={onClick}
+        />
+    );
+}
 
 export default CategoryTag;
