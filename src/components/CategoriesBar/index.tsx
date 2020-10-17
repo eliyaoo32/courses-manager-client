@@ -8,7 +8,7 @@ type CategoriesBarProps = {
 
 function CategoriesBar({ categories }: CategoriesBarProps) {
     return (
-        <Grid container justify="center" direction="row"  style={{marginTop: '10px', width:'100%'}} spacing={2}>
+        <Grid container justify="center" direction="row" style={{width:'100%'}} spacing={2}>
             {categories.map((category, index) => (
                 <Grid item>
                     <CategoryTag key={index} name={category} />
