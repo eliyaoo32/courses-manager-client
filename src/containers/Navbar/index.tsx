@@ -29,7 +29,7 @@ function Navbar() {
                     transformOrigin={{vertical:'top',horizontal:'right'}}
                 >
                     <MenuItem>Categories</MenuItem>
-                    <MenuItem>Load Course</MenuItem>
+                    <MenuItem>Add Course</MenuItem>
                 </Menu>
             </Toolbar>
         </AppBar>
