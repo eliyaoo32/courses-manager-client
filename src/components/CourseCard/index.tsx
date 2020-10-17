@@ -1,34 +1,31 @@
 import React from 'react';
 import { Typography, Card, CardActionArea, CardMedia, CardContent, CardActions } from '@material-ui/core';
 import CategoryTag from '../CategoryTag';
-import Category from '../../types/Category';
+import Course from '../../types/Course';
 
 type CourseCardProps = {
-    courseName: string,
-    courseDescription: string,
-    imageUrl: string,
-    categories: Array<Category>
+    course: Course
 };
 
-const CourseCard = ({ courseName, courseDescription, imageUrl, categories }: CourseCardProps) => (
+const CourseCard = ({ course }: CourseCardProps) => (
     <Card>
         <CardActionArea>
             <CardMedia
                 component="img"
                 height="140"
-                image={imageUrl}
+                image={course.imageUrl}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                    {courseName}
+                    {course.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {courseDescription}
+                    {course.description}
                 </Typography>
             </CardContent>
         </CardActionArea>
         <CardActions>
-            {categories.map((category) => (
+            {course.categories.map((category) => (
                 <CategoryTag key={category.id} small category={category} />)
             )}
         </CardActions>

@@ -11,8 +11,8 @@ function CategoriesBar({ categories }: CategoriesBarProps) {
     return (
         <Grid container justify="center" direction="row" style={{width:'100%'}} spacing={2}>
             {categories.map((category: Category) => (
-                <Grid item>
-                    <CategoryTag key={category.id} category={category} />
+                <Grid item key={category.id}>
+                    <CategoryTag category={category} />
                 </Grid>
             ))}
         </Grid>
