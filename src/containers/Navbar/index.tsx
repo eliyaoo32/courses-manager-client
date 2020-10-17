@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Typography, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import SettingsIcon from '@material-ui/icons/Settings';
 import useStyles from './styles';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     const classes = useStyles();
@@ -14,8 +15,8 @@ function Navbar() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Typography variant="h6" className={classes.headerText}>
-                    Free-Courses
+                <Typography variant="h6" className={classes.headerTitle}>
+                    <Link to='/' className={classes.headerTitleText}>Free-Courses</Link>
                 </Typography>
 
                 <IconButton color="inherit" onClick={handleMenu}>
