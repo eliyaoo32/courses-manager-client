@@ -19,9 +19,7 @@ const _chapters: Array<Chapter> = [
 ];
 
 function Course() {
-    const [ expandedPage, setExpandedPage ] = useState<Chapter[]>([]);
-
-    const onClickChapterTitle = (chapter: Chapter) => setExpandedPage((expanded) => [...expanded, chapter]);
+    const onClickChapterTitle = (chapter: Chapter) => {};
 
     return (
         <Grid container spacing={0}>
@@ -31,9 +29,8 @@ function Course() {
             <Grid item xs={12} md={3}>
                 {_chapters.map((chapter: Chapter) => (
                     <ExpandedChapter
-                        onClickTitle={() => onClickChapterTitle(chapter)}
-                        expanded={expandedPage.includes(chapter)}
                         chapter={chapter}
+                        onClickTitle={onClickChapterTitle}
                     />
                 ))}
             </Grid>

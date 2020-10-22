@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import PlayIcon from "@material-ui/icons/PlayCircleOutline";
 import useStyles from './styles';
@@ -6,17 +6,22 @@ import { Accordion, AccordionDetails, AccordionSummary } from './components';
 import Chapter from "../../types/Chapter";
 
 interface Props {
-  expanded: boolean;
   chapter: Chapter;
-  onClickTitle: () => any;
+  onClickTitle: (chapter: Chapter) => any;
 }
 
-function ExpandedChapter({ expanded, chapter, onClickTitle }: Props) {
+function ExpandedChapter({ chapter, onClickTitle }: Props) {
   const classes = useStyles();
+  const [expanded, setExpanded] = useState<boolean>(false);
+
+  const accordionTitleClick = () => {
+    setExpanded(expanded => !expanded);
+    onClickTitle(chapter);
+  };
 
   return (
     <Accordion square expanded={expanded}>
-      <AccordionSummary onClick={onClickTitle}>
+      <AccordionSummary onClick={accordionTitleClick}>
         <Typography>{chapter.name}</Typography>
       </AccordionSummary>
       <AccordionDetails>
