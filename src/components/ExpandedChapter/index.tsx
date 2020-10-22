@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Typography, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import PlayIcon from "@material-ui/icons/PlayCircleOutline";
-import useStyles from './styles';
+import { Typography } from "@material-ui/core";
 import { Accordion, AccordionDetails, AccordionSummary } from './components';
 import Chapter from "../../types/Chapter";
+import EpisodesList from "../EpisodesList";
 
 interface Props {
   chapter: Chapter;
@@ -11,8 +10,7 @@ interface Props {
 }
 
 function ExpandedChapter({ chapter, onClickTitle }: Props) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = useState<boolean>(false);
+  const [expanded, setExpanded] = useState<boolean>(true);
 
   const accordionTitleClick = () => {
     setExpanded(expanded => !expanded);
@@ -25,14 +23,7 @@ function ExpandedChapter({ chapter, onClickTitle }: Props) {
         <Typography>{chapter.name}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <List className={classes.episodeLists}>
-          <ListItem button>
-            <ListItemIcon>
-              <PlayIcon />
-            </ListItemIcon>
-            <ListItemText primary="How to start" />
-          </ListItem>
-        </List>
+        <EpisodesList episodes={chapter.episodes} />
       </AccordionDetails>
     </Accordion>
   );
