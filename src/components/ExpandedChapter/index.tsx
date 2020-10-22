@@ -8,14 +8,15 @@ import Chapter from "../../types/Chapter";
 interface Props {
   expanded: boolean;
   chapter: Chapter;
+  onClickTitle: () => any;
 }
 
-function ExpandedChapter({ expanded, chapter }: Props) {
+function ExpandedChapter({ expanded, chapter, onClickTitle }: Props) {
   const classes = useStyles();
 
   return (
     <Accordion square expanded={expanded}>
-      <AccordionSummary>
+      <AccordionSummary onClick={onClickTitle}>
         <Typography>{chapter.name}</Typography>
       </AccordionSummary>
       <AccordionDetails>

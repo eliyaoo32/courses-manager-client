@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from '../Navbar';
 import CoursesCatalog from '../CoursesCatalog';
-import Course from '../Course';
+import CoursePage from '../CoursePage';
 
 function App() {
     return (
@@ -16,7 +16,7 @@ function App() {
                         <CoursesCatalog />
                     </Route>
                     <Route path="/course/:course_id">
-                        <Course />
+                        <CoursePage />
                     </Route>
                     <Route path="*">
                         <CoursesCatalog />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import ExpandedChapter from '../../components/ExpandedChapter';
 import Chapter from '../../types/Chapter';
@@ -19,6 +19,10 @@ const _chapters: Array<Chapter> = [
 ];
 
 function Course() {
+    const [ expandedPage, setExpandedPage ] = useState<Chapter[]>([]);
+
+    const onClickChapterTitle = (chapter: Chapter) => setExpandedPage((expanded) => [...expanded, chapter]);
+
     return (
         <Grid container spacing={0}>
             <Grid item xs={12} md={9}>
@@ -26,7 +30,11 @@ function Course() {
             </Grid>
             <Grid item xs={12} md={3}>
                 {_chapters.map((chapter: Chapter) => (
-                    <ExpandedChapter expanded={chapter.id - 2 !== 0} chapter={chapter} />
+                    <ExpandedChapter
+                        onClickTitle={() => onClickChapterTitle(chapter)}
+                        expanded={expandedPage.includes(chapter)}
+                        chapter={chapter}
+                    />
                 ))}
             </Grid>
         </Grid>
