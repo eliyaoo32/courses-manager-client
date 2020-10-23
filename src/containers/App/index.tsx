@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from '../Navbar';
 import CoursesCatalog from '../CoursesCatalog';
 import CoursePage from '../CoursePage';
+import AddCourse from '../AddCourse';
 
 function App() {
     return (
@@ -14,6 +15,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <CoursesCatalog />
+                    </Route>
+                    <Route exact path="/course/add">
+                        <AddCourse />
                     </Route>
                     <Route path="/course/:course_id">
                         <CoursePage />

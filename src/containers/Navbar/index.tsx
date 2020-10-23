@@ -30,7 +30,9 @@ function Navbar() {
                     transformOrigin={{vertical:'top',horizontal:'right'}}
                 >
                     <MenuItem>Categories</MenuItem>
-                    <MenuItem>Add Course</MenuItem>
+                    <MenuItem onClick={handleClose}>
+                        <Link to='/course/add' className={classes.menuItemLink}>Add Course</Link>
+                    </MenuItem>
                 </Menu>
             </Toolbar>
         </AppBar>

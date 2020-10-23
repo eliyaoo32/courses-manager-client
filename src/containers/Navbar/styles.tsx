@@ -7,5 +7,9 @@ export default makeStyles({
     headerTitleText: {
         color:'white',
         textDecoration:'none'
+    },
+    menuItemLink: {
+        color: 'black',
+        textDecoration: 'none'
     }
 });
