@@ -1,12 +1,18 @@
 import React from "react";
 import { AppBar, Tab, Tabs as MaterialTabs } from "@material-ui/core";
 
-interface TabsProps {
-  selectedTab: number;
-  handleTabChange: (tabId: number) => any;
+interface TabPanelItem {
+  key: any;
+  value: any;
 }
 
-function Tabs({ selectedTab, handleTabChange }: TabsProps) {
+interface TabsProps {
+  selectedTab: any;
+  handleTabChange: (tabId: any) => any;
+  items: TabPanelItem[];
+}
+
+function Tabs({ selectedTab, handleTabChange, items }: TabsProps) {
   const onChangeTab = (event: React.ChangeEvent<{}>, newTab: number) =>
     handleTabChange(newTab);
 
@@ -19,8 +25,9 @@ function Tabs({ selectedTab, handleTabChange }: TabsProps) {
         textColor="primary"
         indicatorColor="primary"
       >
-        <Tab label="Item 1" />
-        <Tab label="Item 2" />
+        {items.map((item) => (
+          <Tab label={item.value} value={item.key} style={{textTransform: 'none'}} />
+        ))}
       </MaterialTabs>
     </AppBar>
   );
