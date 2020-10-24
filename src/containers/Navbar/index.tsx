@@ -33,6 +33,7 @@ function Navbar() {
                     <MenuItem onClick={handleClose}>
                         <Link to='/course/add' className={classes.menuItemLink}>Add Course</Link>
                     </MenuItem>
+                    <MenuItem>Theme</MenuItem>
                 </Menu>
             </Toolbar>
         </AppBar>
