@@ -10,7 +10,7 @@ const _chapters: Array<Chapter> = [
         episodes: [
             { id: 1, status: 'TO_WATCH', video_path: '', name: 'Why you use facebook?' },
             { id: 2, status: 'WATCHING', video_path: '', name: 'How to create a banner in facebook' },
-            { id: 3, status: 'TO_WATCH', video_path: '', name: 'Now that you make millions' },
+            { id: 3, status: 'WATCHED', video_path: '', name: 'Now that you make millions' },
         ]
     },
     {
@@ -19,7 +19,7 @@ const _chapters: Array<Chapter> = [
         episodes: [
             { id: 1, status: 'TO_WATCH', video_path: '', name: 'Instagram for dummies' },
             { id: 2, status: 'WATCHING', video_path: '', name: 'Instagram for advanded' },
-            { id: 3, status: 'TO_WATCH', video_path: '', name: 'Instagram is LIFE itself' },
+            { id: 3, status: 'WATCHED', video_path: '', name: 'Instagram is LIFE itself' },
         ]
     },
     {
