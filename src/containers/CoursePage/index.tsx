@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
 import ExpandedChapter from '../../components/ExpandedChapter';
 import Chapter from '../../types/Chapter';
@@ -6,22 +6,32 @@ import Chapter from '../../types/Chapter';
 const _chapters: Array<Chapter> = [
     {
         id: 1,
-        name: "#1 What is facebook?"
+        name: "#1 What is facebook?",
+        episodes: [
+            { id: 1, status: 'TO_WATCH', video_path: '', name: 'Why you use facebook?' },
+            { id: 2, status: 'WATCHING', video_path: '', name: 'How to create a banner in facebook' },
+            { id: 3, status: 'WATCHED', video_path: '', name: 'Now that you make millions' },
+        ]
     },
     {
         id: 2,
-        name: "#2 What is Instagram?"
+        name: "#2 What is Instagram?",
+        episodes: [
+            { id: 1, status: 'TO_WATCH', video_path: '', name: 'Instagram for dummies' },
+            { id: 2, status: 'WATCHING', video_path: '', name: 'Instagram for advanded' },
+            { id: 3, status: 'WATCHED', video_path: '', name: 'Instagram is LIFE itself' },
+        ]
     },
     {
         id: 3,
-        name: "#3 What is Tiktok?"
+        name: "#3 What is Tiktok?",
+        episodes: []
     },
 ];
 
 function Course() {
-    const [ expandedPage, setExpandedPage ] = useState<Chapter[]>([]);
-
-    const onClickChapterTitle = (chapter: Chapter) => setExpandedPage((expanded) => [...expanded, chapter]);
+    const chapters: Chapter[] = _chapters;
+    const onClickChapterTitle = (chapter: Chapter) => {};
 
     return (
         <Grid container spacing={0}>
@@ -29,11 +39,10 @@ function Course() {
                 Hey
             </Grid>
             <Grid item xs={12} md={3}>
-                {_chapters.map((chapter: Chapter) => (
+                {chapters.map((chapter: Chapter) => (
                     <ExpandedChapter
-                        onClickTitle={() => onClickChapterTitle(chapter)}
-                        expanded={expandedPage.includes(chapter)}
                         chapter={chapter}
+                        onClickTitle={onClickChapterTitle}
                     />
                 ))}
             </Grid>
